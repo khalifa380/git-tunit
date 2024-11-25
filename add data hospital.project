@@ -1,0 +1,58 @@
+package hospital_management;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
+
+public class add_data1 {
+		public void add() throws IOException  {
+			String cs = "jdbc:mysql://localhost:3306/newdb1";
+			String query = "insert into pjk3(patient_id,patient_name,location_From,location_To)" +"values(?,?,?,?)";
+			try {	// step 1
+					Connection conn = DriverManager.getConnection(cs,"root","Khalu33@");
+					
+					//step 2
+					PreparedStatement pstmt = conn.prepareStatement(query);
+				
+					BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+					int count = 0;
+					boolean flag = true;
+					
+					String pid;
+					String pname;
+					String location_From;
+					String location_To;
+					String ch;
+					while(flag) {
+						System.out.println("Enter patient id : ");
+						pid = reader.readLine();
+						System.out.println("Enter patient name :");
+						 pname = reader.readLine();
+						System.out.println("Enter location From: ");
+						location_From= reader.readLine();
+						System.out.println("Enter location To: ");
+						 location_To= reader.readLine();
+						 
+						//step 3
+						pstmt.setString(1, pid);
+						pstmt.setString(2, pname);
+						pstmt.setString(3, location_From);
+						pstmt.setString(4,  location_To);
+						count +=pstmt.executeUpdate();
+						// It is the insertion of multiple records
+						System.out.println ("Do you want to continue Y/N");
+						ch = reader.readLine();
+						if(ch.toUpperCase().charAt(0) == 'N')
+							flag = false;
+					}
+					System.out.println (count+" Records Inserted");
+					
+					// step 4
+					conn.close();
+				} catch(Exception e) {
+					System.out.println(e);
+				}
+		}

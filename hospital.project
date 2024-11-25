@@ -1,0 +1,87 @@
+package hospital_management;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class main1 {
+	public static void main(String[] args) throws IOException {
+		int usertype = 0;
+	    int adminno = 0;
+	    int user = 0;
+	    Scanner sc = new Scanner(System.in);
+	    System.out.println("Welcome to people's Hospital ");
+	    while(usertype != 3) {
+	    	System.out.println("*Menu*");
+	    	System.out.println("\t 1. Admin");
+	    	System.out.println("\t 2. user");
+	    	System.out.println("\t 3. Exit");
+	    	System.out.println("=========================================");
+	    	System.out.println("Enter Menu No:");
+	    	usertype = sc.nextInt();
+	    	switch(usertype) {
+	    		case 1:
+	    			System.out.println("Welcome to admin Module");
+	    			while(adminno != 5) {
+	    				System.out.println("Menu*");
+						 System.out.println("\t 1. Add data");
+						 System.out.println("\t 2. View data");
+						 System.out.println("\t 3. Update data");
+						 System.out.println("\t 4. Delete data");
+						 System.out.println("\t 5. Exit");
+						 System.out.println("====================================");
+						  System.out.println("Enter Menu No:");
+						  adminno = sc.nextInt();
+						  switch(adminno) {
+						  case 1:
+						 	 System.out.println("Welcome to add data");
+						 	add_data1 ad = new add_data1();
+						 	ad.add();
+						  
+						 	  break;
+						  case 2:
+						 	 System.out.println("Welcome to view data");
+						 	view_data vd = new view_data();
+						 	vd.view();
+						 	
+						 	 break;
+						  case 3:
+						 	 System.out.println("Welcome to update data");
+						 	 update_data ud = new update_data();
+						 	 ud.update();
+						 	  	 break;
+						  case 4:
+							  System.out.println("Welcome to delete data");
+						 delete_data dd = new delete_data(); 
+						dd.delete();
+						 break;
+						   default:
+						      System.out.println("Admin Exit");
+						       }
+						  
+						  }
+
+	    		break;
+	 		   	case 2:
+	 			   System.out.println("Welcome to user Module");
+	 			  System.out.println("Welcome to user Module");
+		    		while(user != 3) {
+		    			System.out.println("*Menu");
+		    			System.out.println("\t 1.choose");
+		    			System.out.println("\t 2. View Bill");
+		    			System.out.println("\t 3. Exit");
+		    			System.out.println("========================================");
+		    			System.out.println("Enter Menu No:");
+		    		}
+		    			
+ 		    	break;
+	 		    default:
+	 		    	System.out.println("Get well Soon...");
+	    	}
+	    }
+	}
+}
+			
+	 
+	
+
+	                              
+                                  
